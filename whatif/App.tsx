@@ -1,12 +1,13 @@
 import 'react-native-gesture-handler';
 import React, {useEffect} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, StatusBar} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import SplashScreen from 'react-native-splash-screen';
 import AsyncStorage from '@react-native-community/async-storage';
 import {createStackNavigator} from '@react-navigation/stack';
 import SignIn from './src/screens/SignIn';
 import MainTapNavigation from './src/navigations/MainTapNavigation';
+import Stat from 'native-base/lib/typescript/components/composites/Stat';
 
 function Home() {
   return (

@@ -5,6 +5,7 @@ export const globalColors = {
   buttonBackgroundColor: '#262626',
   red: '#ff0000',
   yellow: '#ffff00',
+  green: '#008000',
 };
 
 export const fonts = {};

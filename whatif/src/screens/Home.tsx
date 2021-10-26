@@ -1,20 +1,71 @@
-import React from 'react';
-import {SafeAreaView, Text, StyleSheet, View} from 'react-native';
+import React, {useRef} from 'react';
+import {
+  Text,
+  StyleSheet,
+  View,
+  Pressable,
+  Platform,
+  Animated,
+  Button,
+  ScrollView,
+} from 'react-native';
 import {globalColors} from '../globalStyles';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
+import {StackScreenProps} from '@react-navigation/stack/src/types';
+import {HomeStackParamList} from '../navigations/HomeStackNavigation';
+import faker from 'faker';
 
-function Home() {
+type HomeProps = StackScreenProps<HomeStackParamList, 'Home'>;
+
+const name = faker.name.firstName();
+
+function Home({route, navigation}: HomeProps) {
+  const animatedValue = useRef(new Animated.Value(0)).current;
+
+  const fontColor = animatedValue.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['white', 'black'],
+  });
+
+  const handlePressIn = () =>
+    Animated.timing(animatedValue, {
+      toValue: 1,
+      duration: 100,
+      useNativeDriver: false,
+    }).start();
+
+  const handlePressOut = () =>
+    Animated.timing(animatedValue, {
+      toValue: 0,
+      duration: 100,
+      useNativeDriver: false,
+    }).start();
+
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={{flex: 1, backgroundColor: globalColors.red}}>
-        <Text>헤더</Text>
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Pressable onPressIn={handlePressIn} onPressOut={handlePressOut}>
+          <Animated.Text
+            style={[{fontSize: 30, left: wp('7%')}, {color: fontColor}]}>
+            {name}
+          </Animated.Text>
+        </Pressable>
       </View>
       <View style={{flex: 1, backgroundColor: globalColors.yellow}}>
-        <Text>태그분류</Text>
+        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+          <Pressable>
+            <Text>category 추가버튼</Text>
+          </Pressable>
+          <Text style={{fontSize: 30}} />
+        </ScrollView>
       </View>
-      <View>
+      <View style={{flex: 8, backgroundColor: globalColors.green}}>
         <Text>카드 섹션</Text>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
@@ -23,5 +74,11 @@ export default Home;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  header: {
+    flex: 1,
+    backgroundColor: globalColors.red,
+    flexDirection: 'row',
+    alignItems: Platform.OS === 'ios' ? 'flex-end' : 'center',
   },
 });

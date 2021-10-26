@@ -1,14 +1,7 @@
 import {StackScreenProps} from '@react-navigation/stack/src/types';
 import React, {useEffect, useState} from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Pressable,
-  Keyboard,
-  StatusBar,
-} from 'react-native';
+import {StyleSheet, Text, View, Pressable, Keyboard} from 'react-native';
 import {RootStackParamList} from '../../App';
 import {
   widthPercentageToDP as wp,
