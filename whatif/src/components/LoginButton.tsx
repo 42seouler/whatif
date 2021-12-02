@@ -46,7 +46,7 @@ function LoginButton({userId, userPassword, navigation}: LoginButtonProps) {
     console.log(formBodyToString);
     // todo 화면 구현 후 axios로 서버로 데이터 보내기
     // @ts-ignore
-    navigation.navigation.replace('Home');
+    navigation.navigation.replace('MainTapNavigation');
   };
 
   return (
@@ -54,10 +54,10 @@ function LoginButton({userId, userPassword, navigation}: LoginButtonProps) {
       style={({pressed}) => [
         {
           backgroundColor: pressed
-            ? globalColors.screenBackgroundColor
+            ? globalColors.darkGrey
             : globalColors.buttonBackgroundColor,
         },
-        styles.button,
+        styles.container,
       ]}
       onPress={handleSubmitPress}>
       <Text style={styles.loginText}>로그인</Text>
@@ -68,7 +68,7 @@ function LoginButton({userId, userPassword, navigation}: LoginButtonProps) {
 export default LoginButton;
 
 const styles = StyleSheet.create({
-  button: {
+  container: {
     width: wp('90%'),
     height: hp('6%'),
     justifyContent: 'center',

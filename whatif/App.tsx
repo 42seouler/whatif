@@ -7,7 +7,6 @@ import AsyncStorage from '@react-native-community/async-storage';
 import {createStackNavigator} from '@react-navigation/stack';
 import SignIn from './src/screens/SignIn';
 import MainTapNavigation from './src/navigations/MainTapNavigation';
-import Stat from 'native-base/lib/typescript/components/composites/Stat';
 
 function Home() {
   return (
@@ -50,6 +49,7 @@ function App() {
   }, []);
   return (
     <NavigationContainer>
+      <StatusBar barStyle="light-content" />
       <Stack.Navigator initialRouteName={'SignIn'}>
         <Stack.Screen
           name="MainTapNavigation"

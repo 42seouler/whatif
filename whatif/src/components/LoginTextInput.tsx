@@ -9,20 +9,21 @@ import {
 type LoginTextInputProps = {
   placeholderText: string;
   secureText: boolean;
-  outFocusFunc: (name: string) => void;
+  textInput: string;
+  onChangeFunc: (name: string) => void;
 };
 
 function LoginTextInput({
   placeholderText,
   secureText,
-  outFocusFunc,
+  textInput,
+  onChangeFunc,
 }: LoginTextInputProps) {
   const [textBorderWidth, setTextBorderWidth] = useState(1);
   const [textInputBottom, setTextInputBottom] = useState(
     globalColors.fontGreyColor,
   );
   const animatedValue = useRef(new Animated.ValueXY()).current;
-  const [input, setInput] = useState('');
 
   const handleOnFocusUserId = () =>
     Animated.timing(animatedValue, {
@@ -54,10 +55,9 @@ function LoginTextInput({
       </Animated.View>
       <TextInput
         onChangeText={newInput => {
-          setInput(newInput);
-          outFocusFunc(newInput);
+          onChangeFunc(newInput);
         }}
-        value={input}
+        value={textInput}
         style={[
           styles.TextInputText,
           {
@@ -75,7 +75,7 @@ function LoginTextInput({
         onBlur={() => {
           setTextInputBottom(globalColors.fontGreyColor);
           setTextBorderWidth(1);
-          if (!input) {
+          if (!textInput) {
             handleOutFocusUserId();
           }
         }}
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     height: hp('9%'),
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: globalColors.screenBackgroundColor,
+    backgroundColor: globalColors.darkGrey,
   },
   placeholder: {
     position: 'absolute',

@@ -17,9 +17,9 @@ function LoginOptionButton({name}: LoginButtonProps) {
         {
           backgroundColor: pressed
             ? globalColors.buttonBackgroundColor
-            : globalColors.screenBackgroundColor,
+            : globalColors.darkGrey,
         },
-        styles.button,
+        styles.container,
       ]}
       onPress={() => {
         console.log(name);
@@ -32,7 +32,7 @@ function LoginOptionButton({name}: LoginButtonProps) {
 export default LoginOptionButton;
 
 const styles = StyleSheet.create({
-  button: {
+  container: {
     width: wp('18%'),
     height: hp('3%'),
     justifyContent: 'center',
