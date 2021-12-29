@@ -14,7 +14,10 @@
 
 # 홈 - 게시판
 
-![](https://images.velog.io/images/42seouler/post/9b43a4ee-25c6-4fa2-9a17-bf45851dc4a1/ezgif.com-gif-maker.gif)
+![image](https://user-images.githubusercontent.com/77034008/147626322-d504288a-7639-45a6-a4ab-031e3889bc92.png)
+
+![image](https://user-images.githubusercontent.com/77034008/147626332-e5ac0825-3e1c-450d-977f-0bec96c327f8.png)
+
 
 ## 🛠 사용 기술 및 Tools
 
