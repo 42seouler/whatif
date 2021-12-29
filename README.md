@@ -9,11 +9,11 @@
 
 # 온보딩 - 앱 인트로
 
-![](https://images.velog.io/images/42seouler/post/45a7aaba-d8ae-46bd-b6fc-07c9c4a313f6/ezgif.com-gif-maker%20(1).gif)
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/77034008/147626203-4f3b4a09-c299-4e61-ab2d-170e07bfee81.gif)
+
 
 # 홈 - 게시판
 
-![](https://images.velog.io/images/42seouler/post/9b43a4ee-25c6-4fa2-9a17-bf45851dc4a1/ezgif.com-gif-maker.gif)
 
 ## 🛠 사용 기술 및 Tools
 
