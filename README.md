@@ -14,6 +14,7 @@
 
 # 홈 - 게시판
 
+![](https://images.velog.io/images/42seouler/post/9b43a4ee-25c6-4fa2-9a17-bf45851dc4a1/ezgif.com-gif-maker.gif)
 
 ## 🛠 사용 기술 및 Tools
 
