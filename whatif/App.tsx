@@ -1,70 +1,45 @@
 import 'react-native-gesture-handler';
-import React, {useEffect} from 'react';
-import {View, Text, StatusBar} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
+import React from 'react';
+import { StyleSheet } from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
-import AsyncStorage from '@react-native-community/async-storage';
-import {createStackNavigator} from '@react-navigation/stack';
-import SignIn from './src/screens/SignIn';
+import { NavigationContainer } from '@react-navigation/native';
 import MainTapNavigation from './src/navigations/MainTapNavigation';
-
-function Home() {
-  return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Home Screen</Text>
-    </View>
-  );
-}
-
-function Profile() {
-  return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Profile Screen</Text>
-    </View>
-  );
-}
-
-function SignUp() {
-  return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>SignUp Screen</Text>
-    </View>
-  );
-}
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import AuthenticationNavigation from './src/navigations/AuthenticationNavigaiton';
 
 export type RootStackParamList = {
+  AuthenticationNavigation: undefined;
   MainTapNavigation: undefined;
-  Profile: undefined;
-  SignIn: undefined;
-  SignUp: undefined;
 };
 
-const Stack = createStackNavigator<RootStackParamList>();
+const RootStack = createNativeStackNavigator<RootStackParamList>();
 
-function App() {
-  useEffect(() => {
-    setTimeout(() => {
-      SplashScreen.hide();
-    }, 2000);
-  }, []);
+const App = () => {
+  React.useEffect(() => {
+    SplashScreen.hide();
+  });
+
   return (
     <NavigationContainer>
-      <StatusBar barStyle="light-content" />
-      <Stack.Navigator initialRouteName={'SignIn'}>
-        <Stack.Screen
+      <RootStack.Navigator
+        initialRouteName="MainTapNavigation"
+        // initialRouteName="AuthenticationNavigation"
+        screenOptions={{
+          headerShown: false,
+        }}>
+        <RootStack.Screen
+          name="AuthenticationNavigation"
+          component={AuthenticationNavigation}
+        />
+        <RootStack.Screen
           name="MainTapNavigation"
           component={MainTapNavigation}
-          options={{headerShown: false}}
         />
-        <Stack.Screen name="Profile" component={Profile} />
-        <Stack.Screen
-          name="SignIn"
-          component={SignIn}
-          options={{headerShown: false}}
-        />
-      </Stack.Navigator>
+      </RootStack.Navigator>
     </NavigationContainer>
   );
-}
+};
+
+const styles = StyleSheet.create({});
 
 export default App;

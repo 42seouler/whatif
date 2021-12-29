@@ -1,29 +1,31 @@
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
-import Home from '../screens/Home';
-import Category from '../screens/Category';
-import {StackScreenProps} from '@react-navigation/stack/src/types';
+import { createStackNavigator } from '@react-navigation/stack';
+import Board from '../screens/home/Board';
+import Category from '../screens/home/Category';
+import { HomeRoutes } from './Navigations';
+import CardList from '../screens/home/CardList';
+import { SalonListDetails } from '../screens/home/SalonListDetails';
+import CardDetail from '../screens/home/CardDetail';
 
-export type HomeStackParamList = {
-  Home: undefined;
-  Category: undefined;
-};
+const Stack = createStackNavigator<HomeRoutes>();
 
-const Stack = createStackNavigator<HomeStackParamList>();
-
-function HomeStackNavigation() {
+export default function HomeStackNavigation() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName={'List'}>
       <Stack.Screen
-        name={'Home'}
-        component={Home}
-        options={{headerShown: false}}
+        name={'Board'}
+        component={Board}
+        options={{ headerShown: false }}
       />
-      <Stack.Group screenOptions={{presentation: 'card'}}>
+      <Stack.Screen
+        name={'List'}
+        component={CardList}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen name={'CardDetail'} component={CardDetail} options={{ headerShown: false }}/>
+      <Stack.Group screenOptions={{ presentation: 'card' }}>
         <Stack.Screen name={'Category'} component={Category} />
       </Stack.Group>
     </Stack.Navigator>
   );
 }
-
-export default HomeStackNavigation;
