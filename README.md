@@ -3,16 +3,33 @@
 
 # 개발 목표: 42서울 수료 이후 졸업자 커뮤니티 앱 개발
 
-# 개발 진척도 : 40%
+# 백엔드 진척도: 0%
+### NestJS, Klaytn
+
+# 개발 진척도 : 70%
 ### 홈, 검색, 글쓰기, 월렛, 프로필, 가입 6가지의 스택중 현재 홈, 가입 개발 완료
 
+# 인트로
 
-# 온보딩 - 앱 인트로
+![](https://images.velog.io/images/42seouler/post/ef79c344-3351-48a7-9d8f-4569d2c141a2/image.png)
+
+# 회원가입
+
+![](https://images.velog.io/images/42seouler/post/ec59079a-71a3-4586-b8d2-817d8d9e91f7/image.png)
+
+# 메인
+
+![](https://images.velog.io/images/42seouler/post/e4338d5d-5731-4fd3-926c-07f545d6111e/image.png)
+
+
+# Gif 작동 화면
+
+## 온보딩 - 앱 인트로
 
 ![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/77034008/147626203-4f3b4a09-c299-4e61-ab2d-170e07bfee81.gif)
 
 
-# 홈 - 게시판
+## 홈 - 게시판
 
 ![image](https://user-images.githubusercontent.com/77034008/147626322-d504288a-7639-45a6-a4ab-031e3889bc92.png)
 
